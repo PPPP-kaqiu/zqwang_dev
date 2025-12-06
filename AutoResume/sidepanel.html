@@ -9,12 +9,36 @@
     <header>
       <div class="header-left">
         <h1>AutoResume</h1>
-        <span class="badge">ByteDance</span>
+        <span class="badge">AI Edition</span>
       </div>
-      <button id="resetBtn" class="text-btn" title="重置表格">重置</button>
+      <div class="header-right">
+        <button id="toggleSettings" class="text-btn" title="AI 设置">⚙️</button>
+        <button id="resetBtn" class="text-btn" title="重置表格">重置</button>
+      </div>
     </header>
 
     <main>
+      <!-- Settings Panel (Initially Hidden) -->
+      <div id="settingsPanel" class="settings-panel hidden">
+        <div class="settings-header">
+          <h3>AI 设置</h3>
+          <button id="closeSettings" class="icon-btn-small">×</button>
+        </div>
+        <div class="form-group">
+          <label>API Key</label>
+          <input type="password" id="apiKey" placeholder="sk-..." value="sk-39342b3aec1d421f9560c16523788b86">
+        </div>
+        <div class="form-group">
+          <label>Model Name</label>
+          <input type="text" id="modelName" placeholder="deepseek-chat" value="deepseek-chat">
+        </div>
+        <div class="form-group">
+            <label>Base URL (Optional)</label>
+            <input type="text" id="baseUrl" placeholder="https://api.openai.com/v1">
+        </div>
+        <button id="saveSettingsBtn" class="btn primary small">保存设置</button>
+      </div>
+
       <!-- Alert Box for Results -->
       <div id="resultAlert" class="alert-box hidden">
         <div class="alert-header">
@@ -119,11 +143,22 @@
 
     <div class="footer-actions">
       <button id="saveBtn" class="btn primary">保存信息</button>
-      <button id="fillBtn" class="btn accent">自动填写</button>
+      <button id="fillBtn" class="btn accent">正则填写</button>
+      <button id="aiFillBtn" class="btn ai-btn">✨ AI 填写</button>
+    </div>
+
+    <!-- AI Streaming Log -->
+    <div id="aiLogPanel" class="ai-log-panel hidden">
+        <div class="ai-log-header">
+            <span>🤖 AI 思考中...</span>
+            <div class="spinner"></div>
+        </div>
+        <pre id="aiLogContent"></pre>
     </div>
 
     <div id="statusMsg" class="status-toast"></div>
   </div>
+  <script src="ai-service.js"></script>
   <script src="sidepanel.js"></script>
 </body>
 </html>

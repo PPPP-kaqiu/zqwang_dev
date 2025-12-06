@@ -1,13 +1,16 @@
 {
   "manifest_version": 3,
   "name": "AutoResume Filler",
-  "version": "1.1",
-  "description": "Automatically fill resume on jobs.bytedance.com",
+  "version": "1.2",
+  "description": "Automatically fill resume on jobs.bytedance.com and other recruitment sites",
   "permissions": [
     "activeTab",
     "scripting",
     "storage",
     "sidePanel"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "background": {
     "service_worker": "background.js"
@@ -20,7 +23,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://jobs.bytedance.com/campus/resume/edit*"],
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
   ]
