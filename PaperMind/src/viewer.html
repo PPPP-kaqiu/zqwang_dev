@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperMind PDF Reader</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <!-- Libraries -->
+    <script src="../lib/pdf.js"></script>
+    <script src="../lib/spark-md5.js"></script>
+    <script src="../lib/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar" style="width: 300px;">
+            <div class="sidebar-header">
+                <h2>PaperMind</h2>
+                <div class="header-actions">
+                    <button id="open-file-btn" title="打开本地 PDF">📄</button>
+                    <button id="open-url-btn" title="打开在线 PDF">🌐</button>
+                    <button id="settings-btn" title="设置">⚙️</button>
+                </div>
+                <input type="file" id="file-input" accept=".pdf" style="display: none;">
+            </div>
+            
+            <div id="notes-panel" class="content-panel">
+                <div id="notes-list" class="notes-list-container">
+                    <!-- Notes and AI explanations will be injected here -->
+                    <div class="empty-state">暂无笔记，选中文字添加</div>
+                </div>
+                <div class="bottom-actions">
+                     <button id="btn-generate-report" class="action-btn" style="width: 100%;">生成 AI 阅读报告</button>
+                </div>
+            </div>
+
+            <!-- Resize Handle -->
+            <div class="resize-handle" id="resize-handle"></div>
+        </aside>
+
+        <!-- Main PDF Viewer -->
+        <main class="viewer-container">
+            <div id="status-bar" class="hidden"></div>
+            <!-- Toolbar for Zoom -->
+            <div class="toolbar">
+                <button id="zoom-out-btn" title="缩小">-</button>
+                <span id="zoom-level">120%</span>
+                <button id="zoom-in-btn" title="放大">+</button>
+            </div>
+            <div id="pdf-viewer"></div>
+        </main>
+    </div>
+
+    <!-- Floating Menu (Initially Hidden) -->
+    <div id="floating-menu" class="hidden">
+        <button id="btn-add-note">加入笔记</button>
+        <button id="btn-ai-explain">AI 解释</button>
+    </div>
+
+    <!-- URL Input Modal -->
+    <div id="url-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>打开在线 PDF</h3>
+            <input type="text" id="url-input" placeholder="输入 PDF 链接 (https://...)">
+            <div class="modal-actions">
+                <button id="btn-cancel-url">取消</button>
+                <button id="btn-confirm-url" class="primary">打开</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>设置 AI</h3>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom:5px; font-weight:bold;">API Key</label>
+                <input type="password" id="settings-key" placeholder="sk-..." style="width:100%; padding:8px; box-sizing:border-box; border:1px solid #ccc; border-radius:4px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom:5px; font-weight:bold;">Model Name</label>
+                <input type="text" id="settings-model" placeholder="deepseek-chat" value="deepseek-chat" style="width:100%; padding:8px; box-sizing:border-box; border:1px solid #ccc; border-radius:4px;">
+                <small style="color:#666; font-size:12px;">推荐: deepseek-chat</small>
+            </div>
+            <div class="modal-actions">
+                <button id="btn-cancel-settings">取消</button>
+                <button id="btn-save-settings" class="primary">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <div class="loading-text" id="loading-text">Loading...</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="storage.js"></script>
+    <script src="ai-service.js"></script>
+    <script src="viewer.js"></script>
+</body>
+</html>

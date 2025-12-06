@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1>AutoResume</h1>
+        <span class="badge">ByteDance</span>
+      </div>
+      <button id="resetBtn" class="text-btn" title="重置表格">重置</button>
+    </header>
+
+    <main>
+      <!-- Alert Box for Results -->
+      <div id="resultAlert" class="alert-box hidden">
+        <div class="alert-header">
+          <span id="alertIcon">⚠️</span>
+          <span id="alertTitle">填写结果反馈</span>
+          <button id="closeAlert" class="icon-btn-small">×</button>
+        </div>
+        <div id="alertContent"></div>
+      </div>
+
+      <div class="form-container">
+        
+        <!-- Basic Info Section -->
+        <div class="section">
+          <div class="section-header">
+            <h3>基本信息</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>姓名</label>
+              <input type="text" id="name" placeholder="张三">
+            </div>
+            <div class="form-group">
+              <label>电话</label>
+              <input type="text" id="phone" placeholder="13800000000">
+            </div>
+            <div class="form-group full-width">
+              <label>邮箱</label>
+              <input type="email" id="email" placeholder="example@email.com">
+            </div>
+            <div class="form-group full-width">
+              <label>微信</label>
+              <input type="text" id="wechat" placeholder="WeChat ID">
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section">
+          <div class="section-header">
+            <h3>教育经历</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label>学校</label>
+              <input type="text" id="school" placeholder="北京大学">
+            </div>
+            <div class="form-group">
+              <label>专业</label>
+              <input type="text" id="major" placeholder="计算机科学">
+            </div>
+            <div class="form-group">
+              <label>学历</label>
+              <input type="text" id="degree" placeholder="本科">
+            </div>
+            <div class="form-group">
+              <label>入学时间</label>
+              <input type="month" id="edu_start_date">
+            </div>
+            <div class="form-group">
+              <label>毕业时间</label>
+              <input type="month" id="edu_end_date">
+            </div>
+            <div class="form-group full-width">
+              <label>GPA / 成绩</label>
+              <input type="text" id="gpa" placeholder="3.8/4.0">
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="section">
+          <div class="section-header">
+            <h3>工作/实习经历</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label>公司名称</label>
+              <input type="text" id="company" placeholder="某互联网公司">
+            </div>
+            <div class="form-group full-width">
+              <label>职位名称</label>
+              <input type="text" id="job_title" placeholder="前端开发工程师">
+            </div>
+            <div class="form-group">
+              <label>开始时间</label>
+              <input type="month" id="exp_start_date">
+            </div>
+            <div class="form-group">
+              <label>结束时间</label>
+              <input type="month" id="exp_end_date">
+            </div>
+            <div class="form-group full-width">
+              <label>工作描述</label>
+              <textarea id="job_desc" rows="4" placeholder="简要描述您的工作内容..."></textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <div class="footer-actions">
+      <button id="saveBtn" class="btn primary">保存信息</button>
+      <button id="fillBtn" class="btn accent">自动填写</button>
+    </div>
+
+    <div id="statusMsg" class="status-toast"></div>
+  </div>
+  <script src="sidepanel.js"></script>
+</body>
+</html>

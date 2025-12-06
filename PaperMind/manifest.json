@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "PaperMind",
+  "version": "1.0",
+  "description": "Local PDF Reader with AI Assistant",
+  "permissions": [
+    "storage",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "PaperMind"
+  },
+  "options_ui": {
+    "page": "src/settings.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["src/viewer.html", "lib/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
