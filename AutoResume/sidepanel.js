@@ -82,17 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Save Data
-  saveBtn.addEventListener('click', () => {
+  // Helper to collect data from inputs
+  function collectData() {
     const data = {};
     FIELDS.forEach(id => {
       const el = document.getElementById(id);
       if (el) data[id] = el.value;
     });
+    return data;
+  }
 
-    chrome.storage.local.set({ resumeDataFlat: data });
-
-    const structuredData = {
+  // Helper to structure data
+  function structureData(data) {
+    return {
       basic_info: {
         name: data.name,
         email: data.email,
@@ -115,10 +117,26 @@ document.addEventListener('DOMContentLoaded', () => {
         job_desc: data.job_desc
       }]
     };
+  }
 
-    chrome.storage.local.set({ resumeData: structuredData }, () => {
-      showStatus('已保存');
+  // Save Data
+  function performSave(showToast = true) {
+    return new Promise((resolve) => {
+        const data = collectData();
+        const structuredData = structureData(data);
+        
+        chrome.storage.local.set({ 
+            resumeDataFlat: data,
+            resumeData: structuredData
+        }, () => {
+            if (showToast) showStatus('已保存');
+            resolve(structuredData);
+        });
     });
+  }
+
+  saveBtn.addEventListener('click', () => {
+    performSave(true);
   });
 
   // Reset Data
@@ -136,41 +154,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fill Data
   fillBtn.addEventListener('click', async () => {
-    saveBtn.click();
-    alertBox.classList.add('hidden'); // Hide previous alert
+    alertBox.classList.add('hidden'); 
+    
+    // Explicitly wait for save to complete and get the data
+    const structuredData = await performSave(false);
     
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab) return;
     
-    const data = {};
-    FIELDS.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) data[id] = el.value;
-    });
-
-    const structuredData = {
-      basic_info: {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        wechat: data.wechat
-      },
-      education: [{
-        school: data.school,
-        major: data.major,
-        degree: data.degree,
-        start_date: data.edu_start_date,
-        end_date: data.edu_end_date,
-        gpa: data.gpa
-      }],
-      experience: [{
-        company: data.company,
-        job_title: data.job_title,
-        start_date: data.exp_start_date,
-        end_date: data.exp_end_date,
-        job_desc: data.job_desc
-      }]
-    };
+    // Safety check: is it a valid web page?
+    if (!tab.url || tab.url.startsWith('chrome://')) {
+        showStatus('无法在当前页面运行');
+        return;
+    }
 
     try {
       showStatus('正在填写...');
@@ -184,7 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {
       console.error(err);
-      showStatus('连接超时或失败，请刷新页面');
+      // If content script is not injected (e.g., user navigated to page BEFORE installing extension)
+      // we might get an error.
+      showStatus('连接失败，请刷新网页重试');
     }
   });
 });
