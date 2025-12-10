@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menuContainer"
+    android:layout_width="180dp"
+    android:layout_height="180dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Custom Clip (Top-Right) -->
+    <TextView
+        android:id="@+id/buttonCustom"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/bg_overlay_button"
+        android:text="剪辑"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:elevation="4dp"/>
+
+    <!-- AI Talk (Right) -->
+    <TextView
+        android:id="@+id/buttonTalk"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/bg_overlay_button"
+        android:text="问问"
+        android:textColor="#2196F3"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:elevation="4dp"/>
+
+    <!-- Voice Note (Bottom-Right) -->
+    <TextView
+        android:id="@+id/buttonNote"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/bg_overlay_button"
+        android:text="笔记"
+        android:textColor="#E91E63"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:elevation="4dp"/>
+        
+</FrameLayout>

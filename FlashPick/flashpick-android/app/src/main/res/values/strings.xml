@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FlashPick</string>
+    <string name="permissions_title">基础权限配置</string>
+    <string name="request_runtime_permissions">申请录音权限</string>
+    <string name="request_overlay_permission">开启悬浮窗权限</string>
+    <string name="runtime_permission_status">录音权限：%1$s</string>
+    <string name="overlay_permission_status">悬浮窗权限：%1$s</string>
+    <string name="accessibility_permission_status">无障碍服务：%1$s</string>
+    <string name="open_accessibility_settings">打开无障碍设置</string>
+    <string name="status_enabled">已开启</string>
+    <string name="status_disabled">待授权</string>
+    <string name="overlay_notification_channel">FlashPick 桌宠运行</string>
+    <string name="overlay_notification_title">FlashPick 桌宠运行中</string>
+    <string name="overlay_notification_text">双击桌宠即可触发保存</string>
+    <string name="overlay_double_tap_toast">Triggered</string>
+    <string name="accessibility_service_summary">监控白名单应用以触发桌宠</string>
+    <string name="accessibility_service_description">FlashPick 会在指定 App 前台时自动唤醒浮球，帮助你捕捉精彩瞬间。</string>
+    <string name="manage_whitelist_button">管理白名单应用</string>
+    <string name="whitelist_title">选择需要监控的应用</string>
+    <string name="whitelist_hint">选中的 App 在前台时会自动唤醒桌宠。</string>
+    <string name="whitelist_loading">正在加载应用列表…</string>
+    <string name="whitelist_empty">未找到可用的应用</string>
+    <string name="whitelist_done">完成</string>
+    <string name="whitelist_search_hint">搜索应用名称或包名</string>
+    <string name="whitelist_search_no_result">没有匹配的应用</string>
+    <string name="recorder_permission_request">开启屏幕录制权限</string>
+    <string name="recorder_permission_status">录屏权限：%1$s</string>
+    <string name="recorder_notification_channel">FlashPick 屏幕录制</string>
+    <string name="recorder_notification_title">FlashPick 正在录屏</string>
+    <string name="recorder_notification_text">双击桌宠即可保存高光</string>
+    <string name="accessibility_service_disabled">FlashPick 无障碍服务已关闭，请重新开启</string>
+    <string name="open_gallery">查看录制内容</string>
+    <string name="gallery_empty">暂无录制内容</string>
+    <string name="overlay_record_label">录音</string>
+    <string name="capture_window_updated">已切换回放窗口：前 %1$ds / 后 %2$ds</string>
+    <string name="voice_note_recording">正在录音… 松开即可保存</string>
+    <string name="voice_note_saved">录音已保存</string>
+    <string name="voice_note_failed">录音失败，请重试</string>
+    <string name="voice_note_no_clip">暂无可补充的视频，请先保存高光</string>
+    <string name="overlay_time_option_applied">已设定回放窗口：%1$ds</string>
+    <string name="tab_settings">设置</string>
+    <string name="tab_gallery">录制内容</string>
+</resources>

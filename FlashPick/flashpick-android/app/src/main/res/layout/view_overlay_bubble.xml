@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlayRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- The Expandable Menu (Surrounding) -->
+    <FrameLayout
+        android:id="@+id/menuContainer"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- Top: 2s (Initially Centered) -->
+        <TextView
+            android:id="@+id/buttonTwoSeconds"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bg_overlay_button"
+            android:text="2s"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:elevation="4dp"/>
+
+        <!-- Right: 10s (Initially Centered) -->
+        <TextView
+            android:id="@+id/buttonTenSeconds"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bg_overlay_button"
+            android:text="10s"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:elevation="4dp"/>
+
+        <!-- Bottom: Mic (Initially Centered) -->
+        <TextView
+            android:id="@+id/buttonRecord"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/bg_overlay_button"
+            android:text="Mic"
+            android:textColor="#E91E63"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="4dp"/>
+            
+    </FrameLayout>
+
+    <!-- The Floating Bubble (Centered Pet) -->
+    <FrameLayout
+        android:id="@+id/bubbleCore"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_pet_body"
+        android:elevation="12dp">
+        
+        <!-- Eyes Container -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            
+            <View
+                android:id="@+id/petEyeLeft"
+                android:layout_width="8dp"
+                android:layout_height="10dp"
+                android:background="@drawable/bg_pet_eye" />
+                
+            <Space android:layout_width="16dp" android:layout_height="0dp"/>
+
+            <View
+                android:id="@+id/petEyeRight"
+                android:layout_width="8dp"
+                android:layout_height="10dp"
+                android:background="@drawable/bg_pet_eye" />
+        </LinearLayout>
+            
+    </FrameLayout>
+
+</FrameLayout>

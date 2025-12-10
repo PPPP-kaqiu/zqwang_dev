@@ -1,0 +1,24 @@
+ReadingMyself/
+
+# Android
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+.pytest_cache/
+
+# FlashPick Specific
+FlashPick/flashpick-pc/raw_data/
+FlashPick/flashpick-pc/ai_output/
+
