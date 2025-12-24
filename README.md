@@ -5,6 +5,7 @@
 ## 目录
 
 - [字节跳动简历自动填写助手 (AutoResume)](#字节跳动简历自动填写助手-autoresume)
+- [Scholar Scraper - Google 学术助手](#scholar-scraper---google-学术助手)
 - [FlashPick - 安卓自动化与数据采集](#flashpick---安卓自动化与数据采集)
 - [Context Engine (ReadingMyself) - 个人量化与语音洞察系统](#context-engine-readingmyself---个人量化与语音洞察系统)
 - [PaperMind - 智能学术阅读助手](#papermind---智能学术阅读助手)
@@ -28,13 +29,30 @@
 
 ---
 
+## Scholar Scraper - Google 学术助手
+
+**路径**: [`./ScholarScraper/`](./ScholarScraper/)
+
+### 简介
+一个专为科研人员打造的 Chrome 插件，提供 Google Scholar 引用数据追踪、一作论文自动筛选及学术看板功能。
+
+### 主要功能
+- **学术看板**：Material Design 风格侧边栏，实时监控引用数与 h-index。
+- **一作追踪**：自动筛选并展示第一作者论文列表。
+- **无感刷新**：后台静默更新数据，支持自动巡检。
+- **智能交互**：支持卡片式管理、快速跳转及详情展开。
+
+[查看详细文档](./ScholarScraper/README.md)
+
+---
+
 ## FlashPick - 安卓自动化与数据采集
 
 **路径**: [`./FlashPick/`](./FlashPick/)
 
 ### 简介
 FlashPick 是一款安卓自动化工具，集成了桌宠悬浮窗、屏幕录制、语音笔记等功能，用于高效收集和管理应用使用数据。
-
+ 
 ### 主要功能
 - **哨兵服务**：自动监控白名单应用，智能启动录制。
 - **桌宠悬浮窗**：便捷的手势操作，支持快速回溯录制。

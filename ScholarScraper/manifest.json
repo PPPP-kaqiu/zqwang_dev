@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Scholar Scraper",
+  "version": "1.0",
+  "description": "Automatically capture Google Scholar citations and paper information.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://scholar.google.com/*",
+    "https://scholar.google.com.hk/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Scholar Scraper"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://scholar.google.com/*",
+        "https://scholar.google.com.hk/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
